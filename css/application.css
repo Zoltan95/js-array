@@ -1,0 +1,14 @@
+.container {
+    margin: auto;
+}
+
+#list-of-pictures{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.test {
+    display: block;
+    margin-top: 25px;
+}
