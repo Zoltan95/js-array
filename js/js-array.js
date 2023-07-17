@@ -1,13 +1,19 @@
 
 const loadImageButton = document.getElementById("loadImage");
+const addEmailButton = document.getElementById("addEmail");
 const listOfPicturesBody = document.getElementById("list-of-pictures");
+let array = [];
 
 function fetchData(url){
     return fetch(url)
         .then(checkStatus)
-        .then(error => console.log('Looks like there was a problem', error))
+        //.then(res => res.json())
+        .catch(error => console.log('Looks like there was a problem', error))
         //.then (data => console.log(data))
 }
+
+fetchData("https://picsum.photos/1000/1000")
+    .then (data => generateImageHTML(data.url, data.type))
 
 function checkStatus(response) {
     if (response.ok) {
@@ -16,9 +22,6 @@ function checkStatus(response) {
         return Promise.reject(new Error(response.statusText));
     }
 }
-
-fetchData("https://picsum.photos/1000/1000")
-    .then (data => generateImageHTML(data.url, data.type))
 
 function generateImageHTML(dataUrl, dataType) {
     const html = 
@@ -36,7 +39,24 @@ function generateImage() {
         })
 }
 
+function createEmail() {
+    let emailField = $('#email').val();
+    const imgSrc = document.getElementById("img");
+    email = {
+        email: `${emailField}`,
+        pictures: {}
+    };
+    array.push(email);
+}
+
 loadImageButton.addEventListener("click", generateImage);
+addEmailButton.addEventListener("click", createEmail);
+
+
+
+
+
+
 //function generateImage(data) {
     //const options = data.map(item => 
         //console.log(item)

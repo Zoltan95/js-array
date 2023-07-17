@@ -1,8 +1,9 @@
 .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     margin: auto;
+    width: 1200px;
 }
 
 #list-of-pictures{
@@ -15,7 +16,14 @@
     margin-top: 25px;
 }
 
+.actions {
+    
+}
+
+.col {
+    width: 50%;
+}
+
 .test {
     display: block;
-    margin-top: 25px;
 }
