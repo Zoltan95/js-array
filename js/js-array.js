@@ -1,14 +1,13 @@
 const emailsSelect = $('.actions select');
+const preview = $('#previews');
+const addImageButton = $('#addPicture');
+const listItemsImage = $('.preview ul li img');
 const loadImageButton = document.getElementById("loadImage");
 const addEmailButton = document.getElementById("addEmail");
 const listOfPicturesBody = document.getElementById("list-of-pictures");
 let exists = true;
 let err = {};
 let myEmails = [];
-email = {
-    email,
-    pictures : {}
-};
 
 function fetchData(url){
     return fetch(url)
@@ -53,6 +52,16 @@ function addOptions() {
     });
 }
 
+function emailExists(emailField) {
+    exists = true;
+    myEmails.forEach(function(item, index) {
+        //console.log(item.email);
+        if (emailField === item.email) {
+            exists = false;
+        }      
+    });
+}
+
 function createEmail() {
     const emailField = $('#email').val();
     emailExists(emailField);
@@ -77,15 +86,18 @@ function createEmail() {
         console.log("Email is Valid");
         email = {
             email : `${emailField}`,
-            pictures : {}
+            pictures : []
         };
         myEmails.push(email);
         addOptions();
+        createPreview();
     }
 }
 
+
 loadImageButton.addEventListener("click", generateImage);
 addEmailButton.addEventListener("click", createEmail);
+
 
 $(document).ready(function() {
     //Detect that a user has started entering their name itno the name input
@@ -95,14 +107,51 @@ $(document).ready(function() {
     }});
 });
 
-function emailExists(emailField) {
-    exists = true;
+function createPreview() {
+    $('.preview').remove();
     myEmails.forEach(function(item, index) {
         //console.log(item.email);
-        if (emailField === item.email) {
-            exists = false;
-        }      
-    });
+        counter = myEmails[index].pictures;
+        preview.append(
+        `<div class="preview">
+            <h3 class="preview-title">${item.email}</h3>
+            <ul id="${index}">
+            </ul>
+        </div>`
+        );
+        for (let i = 0; counter.length > i; i++) {
+            $(`#${index}`).append(
+                `<li><img class="preview-image" onclick="addRemovableClass(this)" src="${counter[i]}" /></li>`
+            )
+        }
+    })
+    
+}
+
+function addRemovableClass(element) {
+    const check = element.classList.contains("delete");
+    if (check) {
+        element.classList.remove("delete");
+    }else {
+        element.classList.add("delete");
+    }
+}
+
+function removePicturesFromEmail() {
+    $('.delete').remove();
+}
+
+function addPicturesToEmail() {
+    if (emailsSelect.val() != "") {
+        const img = document.getElementById("img");
+        myEmails.forEach(function(item, index) {
+            //console.log(item.email);
+            if (myEmails[index].email.includes(emailsSelect.val()) === true) {
+                myEmails[index].pictures.push(img.src);
+                createPreview();
+            }
+        })
+    }
 }
 
 

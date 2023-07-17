@@ -6,6 +6,18 @@
     width: 1200px;
 }
 
+#previews {
+    content: "";
+    background-color: grey;
+    height: 500px;
+    border: 2px solid;
+    overflow: auto;
+}
+
+#previews h3 {
+    text-align: center;
+}
+
 #list-of-pictures{
     margin-top: 25px;
     display: flex;
@@ -15,6 +27,23 @@
 
 #loadImage {
     margin-top: 25px;
+}
+.preview ul li img {
+    width: 150px;
+    height: 150px;
+    margin-right: 5px;
+    margin-left: 5px;
+    border: 3px solid transparent;
+}
+
+.preview ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.delete {
+    border: 3px solid red!important;
 }
 
 .header {
