@@ -4,8 +4,17 @@ const listOfPicturesBody = document.getElementById("list-of-pictures");
 
 function fetchData(url){
     return fetch(url)
+        .then(checkStatus)
+        .then(error => console.log('Looks like there was a problem', error))
         //.then (data => console.log(data))
-        //.then (data => generateImageHTML(data.url, data.type))
+}
+
+function checkStatus(response) {
+    if (response.ok) {
+        return Promise.resolve(response);
+    } else {
+        return Promise.reject(new Error(response.statusText));
+    }
 }
 
 fetchData("https://picsum.photos/1000/1000")
