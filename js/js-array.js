@@ -121,7 +121,7 @@ function createPreview() {
         );
         for (let i = 0; counter.length > i; i++) {
             $(`#${index}`).append(
-                `<li><img class="preview-image" onclick="addRemovableClass(this)" src="${counter[i]}" /></li>`
+                `<li onclick="addRemovableClass(this)"><img class="preview-image" src="${counter[i]}" alt="" /></li>`
             )
         }
     })
@@ -129,7 +129,36 @@ function createPreview() {
 }
 
 function addRemovableClass(element) {
-    const check = element.classList.contains("delete");
+    const checkChildrenSrc = element.children[0].src;
+    const checkParentId = element.parentElement.id;
+    const checkIncludes = myEmails[checkParentId].pictures.includes(checkChildrenSrc);
+    const checkWhere = myEmails[checkParentId].pictures.indexOf(checkChildrenSrc);
+    if (checkIncludes) {
+        myEmails[checkParentId].pictures.splice(checkWhere, 1);
+        createPreview();
+    }
+}
+
+function addPicturesToEmail() {
+    if (emailsSelect.val() != "") {
+        const img = document.getElementById("img");
+        myEmails.forEach(function(item, index) {
+            let test = myEmails[index].pictures;
+            let checks = test.includes(img.src);
+            if (myEmails[index].email.includes(emailsSelect.val()) === true) {
+                if (!checks) {
+                    myEmails[index].pictures.push(img.src);
+                    createPreview();
+                }
+            }                
+            //console.log(item.email);
+        })
+    }
+}
+
+/*
+function addRemovableClass(element) {
+    const check = element.classList.contains("delete"); 
     if (check) {
         element.classList.remove("delete");
     }else {
@@ -138,24 +167,26 @@ function addRemovableClass(element) {
 }
 
 function removePicturesFromEmail() {
-    $('.delete').remove();
-}
-
-function addPicturesToEmail() {
-    if (emailsSelect.val() != "") {
-        const img = document.getElementById("img");
+    for (let i = 0; $(`.delete`).length > i; i++) {
+        let getSrc = $(`.delete img`).attr("src");
         myEmails.forEach(function(item, index) {
             //console.log(item.email);
-            if (myEmails[index].email.includes(emailsSelect.val()) === true) {
-                myEmails[index].pictures.push(img.src);
-                createPreview();
+            pics = myEmails[index].pictures;
+            for (let i = 0; i < pics.length; i++) {
+                let check = myEmails[index].pictures.indexOF(getSrc);
+                if (check > -1) {
+                    myEmails[index].pictures.splice(check, 1);
+                }else {
+
+                }
             }
         })
     }
+    //$('.delete').parent().attr("id");
+    //$('.delete img').attr("src");
+    createPreview();
 }
-
-
-
+*/
 
 //function generateImage(data) {
     //const options = data.map(item => 

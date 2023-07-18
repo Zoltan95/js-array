@@ -9,25 +9,24 @@
 <body>
     <div class="container">
         <div class="col">
-            <div class="header">
-                <label for="email">Please Enter An Email Address:</label>
-                <input id="email" type="email" name="email" val="">
-                <button id="addEmail">Add</button>
-            </div>
             <div id="list-of-pictures">
 
             </div>
             <div class="actions">
                 <button id="loadImage">Get A Different Image</button>
                 <select></select>
+                <button id="addPicture" onclick="addPicturesToEmail()">Add Picture</button>
+
+                <br>
+                
+                <label for="email">Please Enter An Email Address:</label>
+                <input id="email" type="email" name="email" val="">
+                <button id="addEmail">Add</button>
             </div>
-        </div>
-        <div>
-            <button id="addPicture" onclick="addPicturesToEmail()">Add Picture</button>
-            <button id="removePicture" onclick="removePicturesFromEmail()">Remove Picture</button>
         </div>
         <div id="previews" class="col">
             <h3>Preview Selected Pictures</h3>
+            <h5>Click To Remove Any Pictures Selected</h5>
             
         </div>
     </div>

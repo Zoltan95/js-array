@@ -14,19 +14,19 @@
     overflow: auto;
 }
 
-#previews h3 {
+#previews h3, #previews h5 {
     text-align: center;
 }
 
 #list-of-pictures{
-    margin-top: 25px;
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #loadImage {
-    margin-top: 25px;
+    margin-top: 15px;
 }
 .preview ul li img {
     width: 150px;
