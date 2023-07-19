@@ -5,17 +5,33 @@
 }
 
 @media (min-width: 768px) {
+    #err_list {
+        width: 100%;
+    }
+
     .container {
         display: flex;
         flex-wrap: wrap;
     }
 
+    #previews .preview ul {
+        max-height: 300px;
+        overflow: auto;
+    }
+
     #list-of-pictures {
-        height: 450px;
+        height: 500px;
+        width: 100%;
     }
 
     .col {
         width: 48%;
+        margin-right: 1%;
+        margin-left: 1%;
+    }
+    .colA {
+        width: 48%;
+        height: 100%;
         margin-right: 1%;
         margin-left: 1%;
     }

@@ -35,7 +35,7 @@ function generateImageHTML(dataUrl, dataType) {
 
 function generateImage() {
     const img = document.getElementById("img");
-    fetchData("https://picsum.photos/1000/1000")
+    fetchData("https://picsum.photos/1920/1080")
         .then (data => {
             img.src = data.url;
             img.alt = data.type;
