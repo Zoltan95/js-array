@@ -16,4 +16,9 @@
     text-transform: uppercase;
     border: 1px solid #333645;
     border-radius: 3px;
+    &:hover {
+        color: #333645;
+        background-color: $white;
+        border: 1px solid #333645;
+    }
 }

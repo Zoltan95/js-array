@@ -277,15 +277,28 @@ ul {
   padding: 0;
 }
 
+img {
+  object-fit: cover;
+}
+
 label {
   display: none;
 }
 
 .container {
-  width: 100vw;
+  width: 100%;
   margin: auto;
   padding-left: 15px;
   padding-right: 15px;
+}
+.container h1 {
+  margin-bottom: 2px;
+}
+.container small {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 0.7em;
 }
 
 .col {
@@ -470,6 +483,11 @@ label {
   border: 1px solid #333645;
   border-radius: 3px;
 }
+.btn:hover {
+  color: #333645;
+  background-color: #fff;
+  border: 1px solid #333645;
+}
 
 @media (min-width: 402px) {
   #previews .preview-title {
@@ -483,6 +501,9 @@ label {
   .container {
     display: flex;
     flex-wrap: wrap;
+  }
+  .container small {
+    font-size: 0.8em;
   }
   #previews .preview ul {
     max-height: 300px;

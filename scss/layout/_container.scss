@@ -3,10 +3,21 @@
 // ==========================================================================
 
 .container {
-    width: 100vw;
+    width: 100%;
     margin: auto;
     padding-left: 15px;
     padding-right: 15px;
+
+    h1 {
+        margin-bottom: 2px;
+    }
+
+    small {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: .7em;
+    }
 }
 
 .col {

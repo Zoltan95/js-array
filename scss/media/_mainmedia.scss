@@ -12,6 +12,10 @@
     .container {
         display: flex;
         flex-wrap: wrap;
+
+        small {
+            font-size: .8em;
+        }
     }
 
     #previews .preview ul {
