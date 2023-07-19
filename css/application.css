@@ -463,6 +463,9 @@ label {
     display: flex;
     flex-wrap: wrap;
   }
+  #list-of-pictures {
+    height: 600px;
+  }
   .col {
     width: 48%;
     margin-right: 1%;
