@@ -302,7 +302,7 @@ label {
   padding: 2px;
 }
 .actions #loadImage {
-  margin-top: -8px;
+  margin-top: 2px;
   width: 100%;
 }
 .actions #addPicture {
@@ -331,6 +331,10 @@ label {
 
 #err_list {
   min-height: 30px;
+}
+
+#list-of-pictures {
+  height: 300px;
 }
 
 .list-of-pictures__img {
@@ -464,7 +468,7 @@ label {
     flex-wrap: wrap;
   }
   #list-of-pictures {
-    height: 600px;
+    height: 450px;
   }
   .col {
     width: 48%;
