@@ -29,9 +29,7 @@ function checkStatus(response) {
 }
 
 function generateImageHTML(dataUrl, dataType) {
-    const html = 
-    `<img class="test" id="img" src='${dataUrl}' alt='${dataType}' width="500" height="500">`
-    ;
+    const html = `<img class="list-of-pictures__img" id="img" src='${dataUrl}' alt='${dataType}' width="500" height="500">`;
     listOfPicturesBody.innerHTML = html;
 }
 
@@ -91,6 +89,9 @@ function createEmail() {
         myEmails.push(email);
         addOptions();
         createPreview();
+        $(".select-selected").remove();
+        $(".select-items").remove();
+        selectOptions();
     }
 }
 

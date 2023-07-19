@@ -9,18 +9,18 @@
 <body>
     <div class="container">
         <div class="col">
-            <div id="list-of-pictures">
+            <h1>Netmatters JS-Array Assessment</h1>
+            <div id="list-of-pictures" class="list-of-pictures">
 
             </div>
             <div class="actions">
                 <button id="loadImage">Get A Different Image</button>
-                <select></select>
                 <button id="addPicture" onclick="addPicturesToEmail()">Add Picture</button>
-
-                <br>
-                
+                <div class="custom-select">
+                    <select></select>
+                </div>               
                 <label for="email">Please Enter An Email Address:</label>
-                <input id="email" type="email" name="email" val="">
+                <input id="email" type="email" name="email" val="" placeholder="Please Enter Email">
                 <button id="addEmail">Add</button>
             </div>
         </div>
@@ -32,6 +32,7 @@
     </div>
 
     <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="js/custom-select.js"></script>
     <script src="js/js-array.js"></script>
 </body>
 </html>

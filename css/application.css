@@ -255,4 +255,113 @@ th {
   box-sizing: border-box;
 }
 
+body {
+  font-size: 1rem;
+  line-height: 1.42857143rem;
+  letter-spacing: 0.4px;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 0.67em 0;
+  text-wrap: wrap;
+}
+
+.list-of-pictures__img {
+  width: 100%;
+  height: 100%;
+}
+
+.actions label {
+  display: none;
+}
+.actions #loadImage {
+  width: 100%;
+}
+.actions #addPicture {
+  margin-top: 15px;
+  width: 100%;
+}
+.actions #email {
+  width: 80%;
+}
+.actions #addEmail {
+  width: 18%;
+}
+
+/* The container must be positioned relative: */
+.custom-select {
+  margin-top: 15px;
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+  font-family: Arial;
+}
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+  border: 1px solid;
+  padding-left: 16px;
+  height: 25px;
+  background-color: #fff;
+  /* Style the arrow inside the select element: */
+  /* Point the arrow upwards when the select box is open (active): */
+}
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+  z-index: 99;
+}
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: #fff;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  /* style the items (options), including the selected item: */
+}
+.select-items div, .select-items .select-selected {
+  color: #0b0b0b;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+.select-items div:hover, .select-items .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.container {
+  width: 100vw;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.col {
+  margin-top: 15px;
+}
+
 /*# sourceMappingURL=application.css.map */
