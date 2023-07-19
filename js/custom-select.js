@@ -80,7 +80,3 @@ function closeAllSelect(elmnt) {
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
 }
-
-$(document).onload(function() {
-  //Detect that a user has started entering their name itno the name input
-});

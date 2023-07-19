@@ -1,0 +1,22 @@
+@media (min-width: 402px) {
+    #previews .preview-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col {
+        width: 48%;
+        margin-right: 1%;
+        margin-left: 1%;
+    }
+}
+
+@media (min-width: 1260px) {
+
+}

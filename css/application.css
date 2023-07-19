@@ -269,33 +269,83 @@ h1 {
   text-wrap: wrap;
 }
 
+ul {
+  color: #ce4125;
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  display: none;
+}
+
+.container {
+  width: 100vw;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.col {
+  margin-top: 15px;
+  padding: 30px;
+  color: #323544;
+  border: 1px solid #cccccc;
+  box-shadow: 0 3px 35px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  border-radius: 15px;
+}
+
+.actions {
+  padding: 2px;
+}
+.actions #loadImage {
+  margin-top: -8px;
+  width: 100%;
+}
+.actions #addPicture {
+  width: 100%;
+}
+
+#email {
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  border: 1px solid #cccccc;
+  box-shadow: 0 3px 35px rgba(0, 0, 0, 0.1);
+  height: 35px;
+  width: 100%;
+}
+
+#addEmail {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  height: 37px;
+  width: 100%;
+  border-width: 1px;
+  margin-bottom: 15px;
+}
+
+#err_list {
+  min-height: 30px;
+}
+
 .list-of-pictures__img {
   width: 100%;
   height: 100%;
 }
 
-.actions label {
-  display: none;
-}
-.actions #loadImage {
-  width: 100%;
-}
-.actions #addPicture {
-  margin-top: 15px;
-  width: 100%;
-}
-.actions #email {
-  width: 80%;
-}
-.actions #addEmail {
-  width: 18%;
-}
-
 /* The container must be positioned relative: */
 .custom-select {
-  margin-top: 15px;
+  margin-top: 25px;
   width: 100%;
-  margin-bottom: 15px;
+  height: 25px;
+  margin-bottom: 5px;
+  border: 1px solid #cccccc !important;
+  box-shadow: 0 3px 35px rgba(0, 0, 0, 0.1);
   position: relative;
   font-family: Arial;
 }
@@ -304,8 +354,9 @@ h1 {
 }
 
 .select-selected {
-  border: 1px solid;
-  padding-left: 16px;
+  border: 1px solid #cccccc;
+  box-shadow: 0 3px 35px rgba(0, 0, 0, 0.1);
+  text-align: center;
   height: 25px;
   background-color: #fff;
   /* Style the arrow inside the select element: */
@@ -319,7 +370,7 @@ h1 {
   width: 0;
   height: 0;
   border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
+  border-color: #0b0b0b transparent transparent transparent;
   z-index: 99;
 }
 .select-selected.select-arrow-active:after {
@@ -331,6 +382,7 @@ h1 {
 .select-items {
   position: absolute;
   background-color: #fff;
+  text-align: center;
   top: 100%;
   left: 0;
   right: 0;
@@ -340,8 +392,8 @@ h1 {
 .select-items div, .select-items .select-selected {
   color: #0b0b0b;
   padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  border: 1px solid #cccccc !important;
+  box-shadow: 0 3px 35px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 .select-items div:hover, .select-items .same-as-selected {
@@ -353,15 +405,69 @@ h1 {
   display: none;
 }
 
-.container {
-  width: 100vw;
-  margin: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+#previews {
+  text-align: center;
+}
+#previews .preview {
+  margin-top: 15px;
+  padding: 30px;
+  color: #323544;
+  border: 1px solid #cccccc;
+  box-shadow: 0 3px 35px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  border-radius: 15px;
+}
+#previews .preview-title {
+  font-size: 0.9rem;
+}
+#previews .preview ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+#previews .preview ul img {
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 150px;
+  height: 150px;
 }
 
-.col {
-  margin-top: 15px;
+.btn {
+  display: inline-block;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 1.063rem;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #333645;
+  background-image: none;
+  min-height: 50px;
+  height: auto;
+  line-height: 35px;
+  padding: 5px 15px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  border: 1px solid #333645;
+  border-radius: 3px;
+}
+
+@media (min-width: 402px) {
+  #previews .preview-title {
+    font-size: 1.1rem;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .col {
+    width: 48%;
+    margin-right: 1%;
+    margin-left: 1%;
+  }
 }
 
 /*# sourceMappingURL=application.css.map */

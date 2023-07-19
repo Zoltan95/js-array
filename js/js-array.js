@@ -29,7 +29,7 @@ function checkStatus(response) {
 }
 
 function generateImageHTML(dataUrl, dataType) {
-    const html = `<img class="list-of-pictures__img" id="img" src='${dataUrl}' alt='${dataType}' width="500" height="500">`;
+    const html = `<img class="list-of-pictures__img" id="img" src='${dataUrl}' alt='${dataType}' width="350" height="350">`;
     listOfPicturesBody.innerHTML = html;
 }
 
@@ -61,24 +61,28 @@ function emailExists(emailField) {
 }
 
 function createEmail() {
+    deleteErrors();
     const emailField = $('#email').val();
     emailExists(emailField);
     let re = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     var is_email = re.test(emailField);
     if (emailField === "")
     {
-        err.isEmailEmpty = "You must provide an Email Address";
+        err.isEmailEmpty = "You must provide an Email Address!";
         console.log("You must provide an Email Address");
+        checkErrors();
     }
     else if (!is_email)
     {
-        err.isEmail = "Please provide a valid Email Address";
+        err.isEmail = "Please provide a valid Email Address!";
         console.log("Please provide a valid Email Address");
+        checkErrors();
     }
     else if (!exists)
     {
-        err.isEmailExists = "Please provide a valid Email Address";
+        err.isEmailExists = "Please provide a valid Email Address!";
         console.log("Email Already Exists");
+        checkErrors();
     }
     else {
         console.log("Email is Valid");
@@ -98,15 +102,6 @@ function createEmail() {
 
 loadImageButton.addEventListener("click", generateImage);
 addEmailButton.addEventListener("click", createEmail);
-
-
-$(document).ready(function() {
-    //Detect that a user has started entering their name itno the name input
-    Object.values(err).forEach(val => {
-        if (val != "") {
-        $("#err_list").append(`<li class='error_msg'>${val}</li>`);
-    }});
-});
 
 function createPreview() {
     $('.preview').remove();
@@ -141,7 +136,8 @@ function addRemovableClass(element) {
 }
 
 function addPicturesToEmail() {
-    if (emailsSelect.val() != "") {
+    deleteErrors();
+    if (emailsSelect.val() != "" && emailsSelect.val() != null) {
         const img = document.getElementById("img");
         myEmails.forEach(function(item, index) {
             let test = myEmails[index].pictures;
@@ -150,10 +146,30 @@ function addPicturesToEmail() {
                 if (!checks) {
                     myEmails[index].pictures.push(img.src);
                     createPreview();
+                }else {
+                    err.isPictureExists = "This picture has already been added to this Email!";
+                    checkErrors();
                 }
             }                
             //console.log(item.email);
         })
+    }else {
+        err.isPictureExists = "Please select email to add picture to!";
+        checkErrors();
+    }
+}
+
+function checkErrors() {
+    Object.values(err).forEach(val => {
+        if (val != "") {
+        $("#err_list").append(`<li class='error_msg'>${val}</li>`);
+    }});
+}
+
+function deleteErrors() {
+    if (Object.keys(err).length > 0) {
+        err = {};
+        $('.error_msg').remove();
     }
 }
 

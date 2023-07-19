@@ -8,25 +8,26 @@
 </head>
 <body>
     <div class="container">
+        <h1>Netmatters JS-Array Assessment</h1>
+        <ul id="err_list"></ul>
         <div class="col">
-            <h1>Netmatters JS-Array Assessment</h1>
+            <label for="email">Please Enter An Email Address:</label>
+            <input id="email" type="email" name="email" val="" placeholder="Please Enter Email">
+            <button class="btn" id="addEmail">Add Email</button>
             <div id="list-of-pictures" class="list-of-pictures">
 
             </div>
             <div class="actions">
-                <button id="loadImage">Get A Different Image</button>
-                <button id="addPicture" onclick="addPicturesToEmail()">Add Picture</button>
+                <button class="btn" id="loadImage">New Image</button>
                 <div class="custom-select">
                     <select></select>
                 </div>               
-                <label for="email">Please Enter An Email Address:</label>
-                <input id="email" type="email" name="email" val="" placeholder="Please Enter Email">
-                <button id="addEmail">Add</button>
+                <button class="btn" id="addPicture" onclick="addPicturesToEmail()">Add Picture</button>
             </div>
         </div>
         <div id="previews" class="col">
             <h3>Preview Selected Pictures</h3>
-            <h5>Click To Remove Any Pictures Selected</h5>
+            <h5>Click Any Pictures To Remove Them</h5>
             
         </div>
     </div>

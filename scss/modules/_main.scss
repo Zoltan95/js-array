@@ -1,0 +1,151 @@
+////// Main /////
+.actions {
+	padding: 2px;
+
+	#loadImage {
+		margin-top: -8px;
+		width: 100%;
+	}
+
+	#addPicture {
+		width: 100%;
+	}
+}
+
+#email {
+	display: block;
+	text-align: center;
+	font-size: 1.2em;
+	border: 1px solid #cccccc;
+	box-shadow: 0 3px 35px rgba(0, 0, 0, 0.1);
+	height: 35px;
+	width: 100%;
+}
+
+#addEmail {
+	display: flex;
+	justify-content: center;
+	margin-top: 5px;
+	height: 37px;
+	width: 100%;
+	border-width: 1px;
+	margin-bottom: 15px;
+}
+
+#err_list {
+	min-height: 30px;
+}
+
+.list-of-pictures {
+
+	@include e(img) {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+////// Custom Select Menu /////
+/* The container must be positioned relative: */
+.custom-select {
+	margin-top: 25px;
+	width: 100%;
+	height: 25px;
+	margin-bottom: 5px;
+	border: 1px solid #cccccc!important;
+    box-shadow: 0 3px 35px rgba(0, 0, 0, 0.1);
+	position: relative;
+	font-family: Arial;
+
+	&  select {
+		display: none; /*hide original SELECT element: */
+	}
+}
+  
+  
+.select-selected {
+	border: 1px solid #cccccc;
+    box-shadow: 0 3px 35px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	height: 25px;
+	background-color: $white;
+
+	/* Style the arrow inside the select element: */
+	&:after {
+		position: absolute;
+		content: "";
+		top: 14px;
+		right: 10px;
+		width: 0;
+		height: 0;
+		border: 6px solid transparent;
+		border-color: $black transparent transparent transparent;
+		z-index: 99;
+	}
+
+	/* Point the arrow upwards when the select box is open (active): */
+	&.select-arrow-active:after {
+		border-color: transparent transparent #fff transparent;
+		top: 7px;
+	}
+}
+  
+/* Style items (options): */
+.select-items {
+	position: absolute;
+	background-color: $white;
+	text-align: center;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 99;
+
+	/* style the items (options), including the selected item: */
+	&  div,.select-selected {
+		color: $black;
+		padding: 8px 16px;
+		border: 1px solid #cccccc!important;
+    	box-shadow: 0 3px 35px rgba(0, 0, 0, 0.1);
+		cursor: pointer;
+	}
+
+	&  div:hover, .same-as-selected {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+}
+  
+/* Hide the items when the select box is closed: */
+.select-hide {
+	display: none;
+}
+
+/////// Previews ///////
+#previews {
+	text-align: center;
+
+	.preview {
+		margin-top: 15px;
+		padding : 30px;
+		color: #323544;
+		border: 1px solid #cccccc;
+		box-shadow: 0 3px 35px rgba(0, 0, 0, 0.1);
+		text-decoration: none;
+		border-radius: 15px;
+		&-title {
+			font-size: .9rem;
+		}
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+
+			img {
+				margin-left: 5px;
+				margin-right: 5px;
+				width: 150px;
+				height: 150px;
+			}
+		}
+	}
+}
