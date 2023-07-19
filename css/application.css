@@ -440,11 +440,15 @@ label {
   align-items: center;
   justify-content: center;
 }
+#previews .preview ul li {
+  display: block;
+  width: 50%;
+}
 #previews .preview ul img {
   margin-left: 5px;
   margin-right: 5px;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
 }
 
 .btn {
