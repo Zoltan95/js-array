@@ -458,6 +458,7 @@ label {
   display: block;
   margin-left: 1%;
   width: 48%;
+  height: 200px;
   margin-right: 1%;
 }
 #previews .preview ul img {
