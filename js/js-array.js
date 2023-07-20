@@ -126,6 +126,7 @@ function createPreview() {
 }
 
 function deletePreview(element) {
+    deleteErrors();
     a = element.parentElement.children[2];
     b = a.getAttribute("id");
     c = prompt(`Please confirm you would like to delete this email address -> "${myEmails[b].email}" with all of it's photoes included. Write "DELETE" to confirm!`);
@@ -133,6 +134,8 @@ function deletePreview(element) {
         myEmails.splice(b, 1);
         createPreview();
     }else {
+        err.deleteEmailError = `Make sure ${c} is upper case!`;
+        checkErrors();
         console.log(`${c} must be upper case! ${c}-s value is invalid!`)
     }
 }
