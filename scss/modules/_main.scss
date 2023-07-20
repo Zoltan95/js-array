@@ -33,7 +33,14 @@
 }
 
 #err_list {
+	color: $white;
+	border: 1px solid transparent;
+	margin-top: 10px;
+	border-radius: 2px;
 	min-height: 30px;
+	.error_msg {
+		background-color: #a94442;
+	}
 }
 
 #list-of-pictures {

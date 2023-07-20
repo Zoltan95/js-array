@@ -69,18 +69,21 @@ function createEmail() {
     if (emailField === "")
     {
         err.isEmailEmpty = "You must provide an Email Address!";
+        window.scrollTo(0, 0);
         console.log("You must provide an Email Address");
         checkErrors();
     }
     else if (!is_email)
     {
         err.isEmail = "Please provide a valid Email Address!";
+        window.scrollTo(0, 0);
         console.log("Please provide a valid Email Address");
         checkErrors();
     }
     else if (!exists)
     {
         err.isEmailExists = "Please provide a valid Email Address!";
+        window.scrollTo(0, 0);
         console.log("Email Already Exists");
         checkErrors();
     }
@@ -134,7 +137,8 @@ function deletePreview(element) {
         myEmails.splice(b, 1);
         createPreview();
     }else {
-        err.deleteEmailError = `Make sure ${c} is upper case!`;
+        err.deleteEmailError = `Make sure "${c}" is upper case!`;
+        window.scrollTo(0, 0);
         checkErrors();
         console.log(`${c} must be upper case! ${c}-s value is invalid!`)
     }
@@ -164,6 +168,7 @@ function addPicturesToEmail() {
                     createPreview();
                 }else {
                     err.isPictureExists = "This picture has already been added to this Email!";
+                    window.scrollTo(0, 0);
                     checkErrors();
                 }
             }                
@@ -171,6 +176,7 @@ function addPicturesToEmail() {
         })
     }else {
         err.isPictureExists = "Please select email to add picture to!";
+        window.scrollTo(0, 0);
         checkErrors();
     }
 }
