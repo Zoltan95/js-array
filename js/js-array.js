@@ -111,6 +111,7 @@ function createPreview() {
         preview.append(
         `<div class="preview">
             <h3 class="preview-title">${item.email}</h3>
+            <button class="delete-email" onclick="deletePreview(this)">X</button>
             <ul id="${index}">
             </ul>
         </div>`
@@ -122,6 +123,18 @@ function createPreview() {
         }
     })
     
+}
+
+function deletePreview(element) {
+    a = element.parentElement.children[2];
+    b = a.getAttribute("id");
+    c = prompt(`Please confirm you would like to delete this email address"${myEmails[b].email}" with all of it's photoes included. Write "DELETE" to confirm!`);
+    if (c === "DELETE") {
+        myEmails.splice(b, 1);
+        createPreview();
+    }else {
+        console.log(`${c} must be upper case! ${c}-s value is invalid!`)
+    }
 }
 
 function addRemovableClass(element) {

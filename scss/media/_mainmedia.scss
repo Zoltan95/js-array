@@ -20,7 +20,7 @@
 
     #previews .preview ul {
         max-height: 300px;
-        overflow: auto;
+        overflow-y: scroll;
     }
 
     #list-of-pictures {

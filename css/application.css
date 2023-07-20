@@ -277,6 +277,15 @@ ul {
   padding: 0;
 }
 
+h5 {
+  margin-top: 0;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 img {
   object-fit: cover;
 }
@@ -437,6 +446,7 @@ label {
   text-align: center;
 }
 #previews .preview {
+  position: relative;
   margin-top: 15px;
   padding: 30px;
   color: #323544;
@@ -448,6 +458,15 @@ label {
 #previews .preview-title {
   font-size: 0.9rem;
 }
+#previews .preview button {
+  position: absolute;
+  right: 0px;
+  top: 1px;
+  font-size: 1.5em;
+  background-color: transparent;
+  color: red;
+  border: 0;
+}
 #previews .preview ul {
   display: flex;
   flex-wrap: wrap;
@@ -456,10 +475,9 @@ label {
 }
 #previews .preview ul li {
   display: block;
-  margin-left: 1%;
+  margin: 1%;
   width: 48%;
-  height: 200px;
-  margin-right: 1%;
+  height: 150px;
 }
 #previews .preview ul img {
   width: 100%;
@@ -509,7 +527,7 @@ label {
   }
   #previews .preview ul {
     max-height: 300px;
-    overflow: auto;
+    overflow-y: scroll;
   }
   #list-of-pictures {
     height: 500px;
