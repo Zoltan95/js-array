@@ -8,6 +8,7 @@ const listOfPicturesBody = document.getElementById("list-of-pictures");
 let exists = true;
 let err = {};
 let myEmails = [];
+let picE;
 
 function fetchData(url){
     return fetch(url)
@@ -40,6 +41,11 @@ function generateImage() {
             img.src = data.url;
             img.alt = data.type;
         })
+}
+
+function picExists() {
+    $('#err_list-two .error_msg').remove();
+    $("#err_list-two").append(`<li class='error_msg'>${picE}</li>`);
 }
 
 function addOptions() {
@@ -77,12 +83,12 @@ function createEmail() {
     {
         err.isEmail = "Please provide a valid Email Address!";
         window.scrollTo(0, 0);
-        console.log("Please provide a valid Email Address");
+        console.log(`This ${emailField} isn't a valid Email address.`);
         checkErrors();
     }
     else if (!exists)
     {
-        err.isEmailExists = "Please provide a valid Email Address!";
+        err.isEmailExists = `This ${emailField} has already been added!`;
         window.scrollTo(0, 0);
         console.log("Email Already Exists");
         checkErrors();
@@ -135,7 +141,13 @@ function deletePreview(element) {
     c = prompt(`Please confirm you would like to delete this email address -> "${myEmails[b].email}" with all of it's photoes included. Write "DELETE" to confirm!`);
     if (c === "DELETE") {
         myEmails.splice(b, 1);
+        $(".select-selected").remove();
+        $(".select-items").remove();
         createPreview();
+        if (myEmails.length > 0){
+        addOptions();
+        selectOptions();
+        }
     }else {
         err.deleteEmailError = `Make sure "${c}" is upper case!`;
         window.scrollTo(0, 0);
@@ -167,7 +179,8 @@ function addPicturesToEmail() {
                     myEmails[index].pictures.push(img.src);
                     createPreview();
                 }else {
-                    err.isPictureExists = "This picture has already been added to this Email!";
+                    picE = "This picture has already been added to this Email!";
+                    picExists();
                     window.scrollTo(0, 0);
                     checkErrors();
                 }
@@ -175,7 +188,7 @@ function addPicturesToEmail() {
             //console.log(item.email);
         })
     }else {
-        err.isPictureExists = "Please select email to add picture to!";
+        picE = "Please select email to add picture to!";
         window.scrollTo(0, 0);
         checkErrors();
     }
@@ -191,6 +204,6 @@ function checkErrors() {
 function deleteErrors() {
     if (Object.keys(err).length > 0) {
         err = {};
-        $('.error_msg').remove();
+        $('#err_list .error_msg').remove();
     }
 }

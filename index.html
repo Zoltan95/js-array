@@ -10,8 +10,8 @@
     <div class="container">
         <h1>Netmatters JS-Array Assessment</h1>
         <small>With this application you can generate random images, and assign them to any "email" or "emails" you provide.</small>
-        <ul id="err_list"></ul>
         <div class="colA">
+            <ul id="err_list"></ul>
             <label for="email">Please Enter An Email Address:</label>
             <input id="email" type="email" name="email" val="" placeholder="Please Enter Email">
             <button class="btn" id="addEmail">Add Email</button>
@@ -22,7 +22,8 @@
                 <button class="btn" id="loadImage">New Image</button>
                 <div class="custom-select">
                     <select></select>
-                </div>               
+                </div>
+                <ul id="err_list-two"></ul>             
                 <button class="btn" id="addPicture" onclick="addPicturesToEmail()">Add Picture</button>
             </div>
         </div>
