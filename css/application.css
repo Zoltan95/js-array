@@ -403,6 +403,10 @@ label {
   text-align: center;
   height: 25px;
   background-color: #fff;
+  word-break: break-all;
+  overflow: hidden;
+  padding-right: 30px;
+  padding-left: 30px;
   /* Style the arrow inside the select element: */
   /* Point the arrow upwards when the select box is open (active): */
 }
@@ -431,6 +435,7 @@ label {
   left: 0;
   right: 0;
   z-index: 99;
+  word-break: break-all;
   /* style the items (options), including the selected item: */
 }
 .select-items div, .select-items .select-selected {
@@ -464,6 +469,7 @@ label {
 }
 #previews .preview-title {
   font-size: 0.9rem;
+  word-wrap: break-word;
 }
 #previews .preview button {
   position: absolute;

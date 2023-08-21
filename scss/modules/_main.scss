@@ -79,6 +79,10 @@
 	text-align: center;
 	height: 25px;
 	background-color: $white;
+	word-break: break-all;
+    overflow: hidden;
+	padding-right: 30px;
+    padding-left: 30px;
 
 	/* Style the arrow inside the select element: */
 	&:after {
@@ -109,6 +113,7 @@
 	left: 0;
 	right: 0;
 	z-index: 99;
+	word-break: break-all;
 
 	/* style the items (options), including the selected item: */
 	&  div,.select-selected {
